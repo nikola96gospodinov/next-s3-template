@@ -1,18 +1,11 @@
+import { GetFile } from "@/components/get-file.component";
 import { UploadFile } from "@/components/upload-file.component";
 
 export default function Home() {
   return (
     <main>
       <UploadFile />
-      <div>
-        <h1>Get your file</h1>
-        <br />
-        <input type="text" />
-        <br />
-        <br />
-        <button>Get</button>
-      </div>
-      <br />
+      <GetFile />
       <div>
         <h1>Delete your file</h1>
         <br />
