@@ -1,9 +1,10 @@
 "use client";
 
 import { useListFiles } from "@/services/list-files/list-files.service";
+import { File } from "./file.component";
 
 export const ListFiles = () => {
-  const { data: files, isLoading, isError } = useListFiles();
+  const { data: fileNames, isLoading, isError } = useListFiles();
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -13,12 +14,16 @@ export const ListFiles = () => {
     return <p>Error getting files</p>;
   }
 
+  if (fileNames?.length === 0) {
+    return <p>No files</p>;
+  }
+
   return (
     <div>
       <h1>List of files</h1>
       <br />
-      {files?.map((file) => (
-        <div key={file}>{file}</div>
+      {fileNames?.map((fileName) => (
+        <File key={fileName} fileName={fileName} />
       ))}
     </div>
   );

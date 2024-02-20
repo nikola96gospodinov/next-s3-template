@@ -1,4 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
+import { invalidateListFiles } from "../list-files/list-files.service";
 
 type Props = {
   file: File;
@@ -18,5 +19,6 @@ const uploadFile = async ({ url, file }: Props) => {
 export const useUploadFile = () => {
   return useMutation({
     mutationFn: uploadFile,
+    onSuccess: () => invalidateListFiles(),
   });
 };

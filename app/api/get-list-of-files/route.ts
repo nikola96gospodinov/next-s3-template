@@ -16,6 +16,10 @@ export async function GET() {
 
     const fileNames = Contents?.map((content) => content.Key?.split("/")[1]);
 
+    if (!fileNames) {
+      return Response.json({ files: [], error: null }, { status: 200 });
+    }
+
     return Response.json({ files: fileNames, error: null }, { status: 200 });
   } catch (error) {
     console.error(error);

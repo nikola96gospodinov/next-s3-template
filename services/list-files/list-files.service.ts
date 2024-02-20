@@ -1,3 +1,4 @@
+import queryClient from "@/lib/react-query";
 import { useQuery } from "@tanstack/react-query";
 
 const LIST_FILES_KEY = "listFiles";
@@ -19,4 +20,8 @@ export const useListFiles = () => {
     queryKey: [LIST_FILES_KEY],
     queryFn: listFile,
   });
+};
+
+export const invalidateListFiles = () => {
+  queryClient.invalidateQueries({ queryKey: [LIST_FILES_KEY] });
 };

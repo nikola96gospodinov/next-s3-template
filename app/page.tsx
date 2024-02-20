@@ -6,14 +6,6 @@ export default function Home() {
     <main>
       <UploadFile />
       <ListFiles />
-      <div>
-        <h1>Delete your file</h1>
-        <br />
-        <input type="text" />
-        <br />
-        <br />
-        <button>Delete</button>
-      </div>
     </main>
   );
 }
