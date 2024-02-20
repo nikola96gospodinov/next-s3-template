@@ -25,6 +25,7 @@ export async function POST(req: Request) {
     }
 
     const { fileName, contentType, fileSize, sha256 } = validatedBody.data;
+    // TODO: Make sure the actual file name is unique and will always be unique
 
     const putObjectCommand = new PutObjectCommand({
       Bucket: process.env.AWS_BUCKET_NAME!,

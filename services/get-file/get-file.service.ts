@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-const fileNameKey = "fileName";
+const GET_FILE_KEY = "getFileKey";
 
 const getFile = async (fileName: string) => {
   const response = await fetch(`/api/get-file?fileName=${fileName}`);
@@ -16,7 +16,7 @@ const getFile = async (fileName: string) => {
 
 export const useGetFile = (fileName: string) => {
   return useQuery({
-    queryKey: [fileNameKey, fileName],
+    queryKey: [GET_FILE_KEY, fileName],
     queryFn: () => getFile(fileName),
     enabled: !!fileName,
     refetchInterval: 1000 * 60 * 60 * 24, // 1 day (in line with the signed URL expiry time)
